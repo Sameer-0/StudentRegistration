@@ -1,17 +1,26 @@
-import React from 'react';
-import './App.css';
-import FooterComponent from './components/FooterComponent';
-import HeaderComponent from './components/HeaderComponent';
-import ListStudentComponent from './components/ListStudentComponent';
+import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./layout/Navbar";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddUser from "./users/AddUser";
+import EditUser from "./users/EditUser";
+import ViewUser from "./users/ViewUser";
+import React from "react";
 
 function App() {
   return (
-    <div>
-      <HeaderComponent/>
-         <div className="container">
-            <ListStudentComponent />
-          </div>
-          <FooterComponent/>
+    <div className="App">
+      <Router>
+        <Navbar />
+
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/adduser" element={<AddUser />} />
+          <Route exact path="/edituser/:id" element={<EditUser />} />
+          <Route exact path="/viewuser/:id" element={<ViewUser />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
