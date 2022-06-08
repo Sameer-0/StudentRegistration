@@ -10,12 +10,12 @@ export default function Home() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("https://spring-boot-hosting-v1.herokuapp.com");
+    const result = await axios.get("https://spring-boot-hosting-v1.herokuapp.com/users");
     setUsers(result.data);
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`https://spring-boot-hosting-v1.herokuapp.com/user/${id}`);
+    await axios.delete(`https://spring-boot-hosting-v1.herokuapp/user/${id}`);
     loadUsers();
   };
 

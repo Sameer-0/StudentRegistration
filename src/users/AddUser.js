@@ -18,8 +18,9 @@ export default function AddUser() {
   };
 
   const onSubmit = async (e) => {
+      
     e.preventDefault();
-    await axios.post("https://spring-boot-hosting-v1.herokuapp.com/users", user);
+    await axios.post("https://spring-boot-hosting-v1.herokuapp.com/user", user);
     navigate("/");
   };
 
