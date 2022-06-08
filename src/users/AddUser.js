@@ -18,9 +18,8 @@ export default function AddUser() {
   };
 
   const onSubmit = async (e) => {
-      
     e.preventDefault();
-    await axios.post("https://spring-boot-hosting-v1.herokuapp.com/user", user);
+    await axios.post("http://localhost:8080/user", user);
     navigate("/");
   };
 

@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function Home() {
   const [users, setUsers] = useState([]);
+
+  const { id } = useParams();
 
   useEffect(() => {
     loadUsers();
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("https://spring-boot-hosting-v1.herokuapp.com/users");
+    const result = await axios.get("http://localhost:8080/users");
     setUsers(result.data);
   };
+  
 
   const deleteUser = async (id) => {
-    await axios.delete(`https://spring-boot-hosting-v1.herokuapp/user/${id}`);
+    await axios.delete(`http://localhost:8080/user/${id}`);
     loadUsers();
   };
 
