@@ -10,7 +10,7 @@ export default function Home() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("https://spring-boot-hosting-v1.herokuapp.com/users");
+    const result = await axios.get("https://spring-boot-hosting-v1.herokuapp.com");
     setUsers(result.data);
   };
 
